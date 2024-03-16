@@ -18,13 +18,14 @@ import java.time.LocalDate;
 public class Personnage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String name;
-    private String occupation;
-    private String religion;
+    private Long Id;
+    private String firstName;
+    private String LastName;
     private LocalDate birthDate;
     private LocalDate deceaseDate;
-    private String placeOfBirth;
     private String nationality;
+    private String occupation;
+    private String religion;
     private String contribution;
     private String quotes;
     private String biographie;

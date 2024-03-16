@@ -24,7 +24,7 @@ public class PersonnageServiceImpl implements PersonnageService {
 
     @Override
     public Page<Personnage> searchPersonnage(String query, Pageable pageable) {
-        return personnageRepository.findByNameContaining(query, pageable);
+        return personnageRepository.findByFirstNameContaining(query, pageable);
     }
 
     @Override
