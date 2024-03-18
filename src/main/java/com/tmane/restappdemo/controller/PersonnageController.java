@@ -51,4 +51,8 @@ public class PersonnageController {
         return personnageService.updatePersonnage(personnageData);
     }
 
+    @DeleteMapping("/{id}")
+    public void deletePersonnage(@PathVariable("id") Long id) {
+        personnageService.deletePersonnageById(id);
+    }
 }
