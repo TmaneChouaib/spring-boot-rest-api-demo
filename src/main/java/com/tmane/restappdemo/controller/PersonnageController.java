@@ -28,8 +28,27 @@ public class PersonnageController {
     }
 
     @PostMapping
-    public Personnage savePersonnage(@RequestBody Personnage personnage){
+    public Personnage savePersonnage(@RequestBody Personnage personnage) {
         return personnageService.savePersonnage(personnage);
+    }
+
+    @PutMapping("/{id}")
+    public Personnage updatePersonnage(@RequestBody Personnage personnage, @PathVariable("id") Long id) {
+
+        Personnage personnageData = personnageService.getPersonnageById(id);
+
+        personnageData.setFirstName(personnage.getFirstName());
+        personnageData.setLastName(personnage.getLastName());
+        personnageData.setBirthDate(personnage.getBirthDate());
+        personnageData.setDeceaseDate(personnage.getDeceaseDate());
+        personnageData.setNationality(personnage.getNationality());
+        personnageData.setOccupation(personnage.getOccupation());
+        personnageData.setReligion(personnage.getReligion());
+        personnageData.setContribution(personnage.getContribution());
+        personnageData.setQuotes(personnage.getQuotes());
+        personnageData.setBiographie(personnage.getBiographie());
+
+        return personnageService.updatePersonnage(personnageData);
     }
 
 }
