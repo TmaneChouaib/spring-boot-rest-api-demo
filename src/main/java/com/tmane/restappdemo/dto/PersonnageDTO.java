@@ -1,16 +1,18 @@
 package com.tmane.restappdemo.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonnageResponseDTO {
-    private Long Id;
+public class PersonnageDTO {
+    private Long id;
     private String firstName;
     private String LastName;
     private LocalDate birthDate;
@@ -22,3 +24,4 @@ public class PersonnageResponseDTO {
     private String quotes;
     private String biographie;
 }
+

@@ -1,26 +1,26 @@
 package com.tmane.restappdemo.service;
 
 
-import com.tmane.restappdemo.entiy.Personnage;
+import com.tmane.restappdemo.dto.PersonnageDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface PersonnageService {
-    Page<Personnage> findPaginated(int pageNum, int pageSize);
+    Page<PersonnageDTO> findPaginated(int pageNum, int pageSize);
 
-    Page<Personnage> searchPersonnage(String query, Pageable pageable);
+    Page<PersonnageDTO> searchPersonnage(String query, Pageable pageable);
 
-    List<Personnage> getAllPersonnages();
+    List<PersonnageDTO> getAllPersonnages();
 
-    Personnage savePersonnage(Personnage personnage);
+    PersonnageDTO savePersonnage(PersonnageDTO personnageDTO);
 
-    Personnage updatePersonnage(Personnage personnage, Long id);
+    PersonnageDTO updatePersonnage(PersonnageDTO personnageDTO, Long id);
 
     void deletePersonnageById(Long id);
 
-    Personnage getPersonnageById(Long id);
+    PersonnageDTO getPersonnageById(Long id);
 
     long count();
 }

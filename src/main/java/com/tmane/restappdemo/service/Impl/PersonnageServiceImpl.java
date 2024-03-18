@@ -1,6 +1,8 @@
 package com.tmane.restappdemo.service.Impl;
 
+import com.tmane.restappdemo.dto.PersonnageDTO;
 import com.tmane.restappdemo.entiy.Personnage;
+import com.tmane.restappdemo.mapper.PersonnageMapper;
 import com.tmane.restappdemo.repository.PersonnageRepository;
 import com.tmane.restappdemo.service.PersonnageService;
 import lombok.AllArgsConstructor;
@@ -10,50 +12,64 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class PersonnageServiceImpl implements PersonnageService {
     private PersonnageRepository personnageRepository;
+    private PersonnageMapper personnageMapper;
 
     @Override
-    public Page<Personnage> findPaginated(int pageNum, int pageSize) {
+    public Page<PersonnageDTO> findPaginated(int pageNum, int pageSize) {
         Pageable pageable = PageRequest.of(pageNum, pageSize);
-        return personnageRepository.findAll(pageable);
+        Page<Personnage> page = personnageRepository.findAll(pageable);
+        return page.map(personnageMapper::mapToPersonnageDTO);
     }
 
     @Override
-    public Page<Personnage> searchPersonnage(String query, Pageable pageable) {
-        return personnageRepository.findByFirstNameContaining(query, pageable);
+    public Page<PersonnageDTO> searchPersonnage(String query, Pageable pageable) {
+
+        Page<Personnage> page = personnageRepository.findByFirstNameContaining(query, pageable);
+        return page.map(personnageMapper::mapToPersonnageDTO);
     }
 
     @Override
-    public List<Personnage> getAllPersonnages() {
-        return personnageRepository.findAll();
+    public List<PersonnageDTO> getAllPersonnages() {
+
+        List<Personnage> personnages = personnageRepository.findAll();
+        return personnages.stream().map(personnageMapper::mapToPersonnageDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Personnage savePersonnage(Personnage personnage) {
-        return personnageRepository.save(personnage);
+    public PersonnageDTO savePersonnage(PersonnageDTO personnageDTO) {
+
+        Personnage personnage = personnageMapper.mapToPersonnage(personnageDTO);
+        personnageRepository.save(personnage);
+
+        return personnageMapper.mapToPersonnageDTO(personnage);
     }
 
     @Override
-    public Personnage updatePersonnage(Personnage personnage, Long id) {
+    public PersonnageDTO updatePersonnage(PersonnageDTO personnageDTO, Long id) {
+        Personnage personnageData = personnageRepository.findById(id).get();
 
-        Personnage personnageData = getPersonnageById(id);
 
-        personnageData.setFirstName(personnage.getFirstName());
-        personnageData.setLastName(personnage.getLastName());
-        personnageData.setBirthDate(personnage.getBirthDate());
-        personnageData.setDeceaseDate(personnage.getDeceaseDate());
-        personnageData.setNationality(personnage.getNationality());
-        personnageData.setOccupation(personnage.getOccupation());
-        personnageData.setReligion(personnage.getReligion());
-        personnageData.setContribution(personnage.getContribution());
-        personnageData.setQuotes(personnage.getQuotes());
-        personnageData.setBiographie(personnage.getBiographie());
+        personnageData.setFirstName(personnageDTO.getFirstName());
+        personnageData.setLastName(personnageDTO.getLastName());
+        personnageData.setBirthDate(personnageDTO.getBirthDate());
+        personnageData.setDeceaseDate(personnageDTO.getDeceaseDate());
+        personnageData.setNationality(personnageDTO.getNationality());
+        personnageData.setOccupation(personnageDTO.getOccupation());
+        personnageData.setReligion(personnageDTO.getReligion());
+        personnageData.setContribution(personnageDTO.getContribution());
+        personnageData.setQuotes(personnageDTO.getQuotes());
+        personnageData.setBiographie(personnageDTO.getBiographie());
 
-        return personnageRepository.save(personnage);
+        personnageRepository.save(personnageData);
+
+        return personnageMapper.mapToPersonnageDTO(personnageData);
     }
 
     @Override
@@ -62,8 +78,11 @@ public class PersonnageServiceImpl implements PersonnageService {
     }
 
     @Override
-    public Personnage getPersonnageById(Long id) {
-        return personnageRepository.findById(id).get();
+    public PersonnageDTO getPersonnageById(Long id) {
+
+        Personnage personnage = personnageRepository.findById(id).get();
+
+        return personnageMapper.mapToPersonnageDTO(personnage);
     }
 
     @Override
