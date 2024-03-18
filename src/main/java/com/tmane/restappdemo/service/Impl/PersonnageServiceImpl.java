@@ -18,7 +18,7 @@ public class PersonnageServiceImpl implements PersonnageService {
 
     @Override
     public Page<Personnage> findPaginated(int pageNum, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
+        Pageable pageable = PageRequest.of(pageNum, pageSize);
         return personnageRepository.findAll(pageable);
     }
 
@@ -38,7 +38,21 @@ public class PersonnageServiceImpl implements PersonnageService {
     }
 
     @Override
-    public Personnage updatePersonnage(Personnage personnage) {
+    public Personnage updatePersonnage(Personnage personnage, Long id) {
+
+        Personnage personnageData = getPersonnageById(id);
+
+        personnageData.setFirstName(personnage.getFirstName());
+        personnageData.setLastName(personnage.getLastName());
+        personnageData.setBirthDate(personnage.getBirthDate());
+        personnageData.setDeceaseDate(personnage.getDeceaseDate());
+        personnageData.setNationality(personnage.getNationality());
+        personnageData.setOccupation(personnage.getOccupation());
+        personnageData.setReligion(personnage.getReligion());
+        personnageData.setContribution(personnage.getContribution());
+        personnageData.setQuotes(personnage.getQuotes());
+        personnageData.setBiographie(personnage.getBiographie());
+
         return personnageRepository.save(personnage);
     }
 

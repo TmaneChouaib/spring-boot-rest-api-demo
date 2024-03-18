@@ -16,7 +16,7 @@ public interface PersonnageService {
 
     Personnage savePersonnage(Personnage personnage);
 
-    Personnage updatePersonnage(Personnage personnage);
+    Personnage updatePersonnage(Personnage personnage, Long id);
 
     void deletePersonnageById(Long id);
 
