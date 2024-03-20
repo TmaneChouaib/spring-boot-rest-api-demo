@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.tmane</groupId>
-    <artifactId>Rest-App-Demo</artifactId>
+    <artifactId>spring-boot-rest-api-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Rest-App-Demo</name>
     <description>Rest-App-Demo</description>
