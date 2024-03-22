@@ -2,6 +2,7 @@ package com.tmane.restappdemo.service;
 
 
 import com.tmane.restappdemo.dto.PersonnageDTO;
+import com.tmane.restappdemo.exeption.PersonnageNoSuchElementException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,7 +21,7 @@ public interface PersonnageService {
 
     void deletePersonnageById(Long id);
 
-    PersonnageDTO getPersonnageById(Long id);
+    PersonnageDTO getPersonnageById(Long id) throws PersonnageNoSuchElementException;
 
     long count();
 }

@@ -2,21 +2,26 @@ package com.tmane.restappdemo.service.Impl;
 
 import com.tmane.restappdemo.dto.PersonnageDTO;
 import com.tmane.restappdemo.entiy.Personnage;
+import com.tmane.restappdemo.exeption.PersonnageNoSuchElementException;
 import com.tmane.restappdemo.mapper.PersonnageMapper;
 import com.tmane.restappdemo.repository.PersonnageRepository;
 import com.tmane.restappdemo.service.PersonnageService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class PersonnageServiceImpl implements PersonnageService {
+    private MessageSource messageSource;
     private PersonnageRepository personnageRepository;
     private PersonnageMapper personnageMapper;
 
@@ -79,10 +84,13 @@ public class PersonnageServiceImpl implements PersonnageService {
 
     @Override
     public PersonnageDTO getPersonnageById(Long id) {
-
-        Personnage personnage = personnageRepository.findById(id).get();
-
-        return personnageMapper.mapToPersonnageDTO(personnage);
+        try {
+            Personnage personnage = personnageRepository.findById(id).get();
+            return personnageMapper.mapToPersonnageDTO(personnage);
+        } catch (NoSuchElementException e) {
+            String message = messageSource.getMessage("personnage.notfound", new Object[]{id}, Locale.getDefault());
+            throw new PersonnageNoSuchElementException(message, id);
+        }
     }
 
     @Override
