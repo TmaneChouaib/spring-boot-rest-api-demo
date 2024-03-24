@@ -7,7 +7,7 @@ API    <img width="50" src="https://user-images.githubusercontent.com/25181517/1
 
 - [About](#about)
 - [Objective](#objective)
-- [Features](#features)
+- [Technical features](#technical-features)
 - [Endpoints](#endpoints)
 - [HTTP Status Codes](#http-status-codes)
 - [Project Structure](#project-structure)
@@ -22,12 +22,18 @@ API    <img width="50" src="https://user-images.githubusercontent.com/25181517/1
 
 - The main objective of this repository is to provide a demonstration of building a RESTful API using Spring Boot.
 
-## Features:
+## <a name="technical-features"></a> 📎 Technical Features:
 
-- **RESTful Endpoints**: Implementation of CRUD operations for managing ressources.
-- **DTOs**: Data transfer objects for encapsulating data exchanged between the client and server.
-- **Service Layer**: Business logic encapsulating in service classe.
-- **Repository Layer**: Data access logic managed by JPA repositories.
+- 1. **Project Structure**: Organized project structure following best practices and conventions to enhance code readability and maintainability.
+- 2. **DTOs**: Usage of DTOs to encapsulate data exchanged between the client and server.
+- 3. **Mapper Classe**: Mapper classes for mapping between DTOs and entities, promoting clean separation of concerns and enhancing maintainability.
+- 4. **Repository Layer**: Data access logic managed by JPA repositories, leveraging Spring Data JPA for seamless database interactions.
+- 5. **Service Layer**: Business logic encapsulated in service classes to maintain separation of concerns and enhance modularity.
+- 6. **RESTful Endpoints**: Implementation of CRUD operations following RESTful conventions for managing ressources.
+- 7. **Exception Handling**: Custom exception handling for gracefully managing errors and providing meaningful responses to clients.
+- 8. **Swagger OpenAPI**: Integration with Swagger for API documentation, enhancing API discoverability and ease of use.
+- 9. **CORS Configuration**: Configuration to allow requests from specified origins, facilitating cross-origin communication.
+- 10. **Database Interaction**: Interaction with MySQL database using Hibernate as the JPA implementation, ensuring efficient data storage and retrieval.
 
 ## <a name="endpoints"></a> 📎 Endpoints:
 
@@ -102,6 +108,10 @@ spring-boot-rest-api-demo/
 │   │   │               │   └── PersonnageDTO.java
 │   │   │               ├── entity/
 │   │   │               │   └── Personnage.java
+│   │   │               ├── exception/
+│   │   │               │   └── PersonnageNoSuchElementException.java
+│   │   │               ├── handler/
+│   │   │               │   └── GlobalExceptionHandler.java
 │   │   │               ├── mapper/
 │   │   │               │   └── PersonnageMapper.java
 │   │   │               ├── repository/
@@ -113,8 +123,8 @@ spring-boot-rest-api-demo/
 │   │   │               └── RestAppDemoApplication.java
 │   │   │
 │   └── resources/
-│       └── application.properties
-│
+│       ├── application.properties
+│       └── messages.properties
 ├── pom.xml
 └── README.md
 ```
@@ -135,5 +145,5 @@ spring-boot-rest-api-demo/
 
 ----------------------------------------------------------------------------------------------------------
 
-<p align="center">
-<img src="public-doc/Brand.png">
+<p align="end">
+<img width="200" src="public-doc/Brand.png">

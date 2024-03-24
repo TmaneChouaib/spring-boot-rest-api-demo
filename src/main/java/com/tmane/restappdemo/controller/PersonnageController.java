@@ -35,7 +35,6 @@ public class PersonnageController {
         return personnageService.searchPersonnage(keyword, pageable);
     }
 
-
     @GetMapping("/{id}")
     public PersonnageDTO getPersonnageById(@PathVariable("id") Long id) {
         return personnageService.getPersonnageById(id);
