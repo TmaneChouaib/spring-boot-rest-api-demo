@@ -1,6 +1,5 @@
-<h2 align="center">    <img width="50" src="https://user-images.githubusercontent.com/25181517/117201470-f6d56780-adec-11eb-8f7c-e70e376cfd07.png" alt="Spring" title="Spring"/>
-spring-boot-rest-api-demo - demo
-API    <img width="50" src="https://user-images.githubusercontent.com/25181517/117201470-f6d56780-adec-11eb-8f7c-e70e376cfd07.png" alt="Spring" title="Spring"/>
+<h2 align="center">   
+REST API DEMO
 </h2>
 
 ## 🔎 Table of Contents:
@@ -24,16 +23,20 @@ API    <img width="50" src="https://user-images.githubusercontent.com/25181517/1
 
 ## <a name="technical-features"></a> 📎 Technical Features:
 
-- 1. **Project Structure**: Organized project structure following best practices and conventions to enhance code readability and maintainability.
-- 2. **DTOs**: Usage of DTOs to encapsulate data exchanged between the client and server.
-- 3. **Mapper Classe**: Mapper classes for mapping between DTOs and entities, promoting clean separation of concerns and enhancing maintainability.
-- 4. **Repository Layer**: Data access logic managed by JPA repositories, leveraging Spring Data JPA for seamless database interactions.
-- 5. **Service Layer**: Business logic encapsulated in service classes to maintain separation of concerns and enhance modularity.
-- 6. **RESTful Endpoints**: Implementation of CRUD operations following RESTful conventions for managing ressources.
-- 7. **Exception Handling**: Custom exception handling for gracefully managing errors and providing meaningful responses to clients.
-- 8. **Swagger OpenAPI**: Integration with Swagger for API documentation, enhancing API discoverability and ease of use.
-- 9. **CORS Configuration**: Configuration to allow requests from specified origins, facilitating cross-origin communication.
-- 10. **Database Interaction**: Interaction with MySQL database using Hibernate as the JPA implementation, ensuring efficient data storage and retrieval.
+- This project showcases the following technical features:
+
+| Feature                  | Description                                                                                                                 |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **Project Structure**    | Organized project structure following best practices and conventions to enhance code readability and maintainability.       |
+| **DTOs**                 | Usage of DTOs to encapsulate data exchanged between the client and server.                                                  |
+| **Mapper Classes**       | Mapper classes for mapping between DTOs and entities, promoting clean separation of concerns and enhancing maintainability. |
+| **Repository Layer**     | Data access logic managed by JPA repositories, leveraging Spring Data JPA for seamless database interactions.               |
+| **Service Layer**        | Business logic encapsulated in service classes to maintain separation of concerns and enhance modularity.                   |
+| **RESTful Endpoints**    | Implementation of CRUD operations following RESTful conventions for managing resources.                                     |
+| **Exception Handling**   | Custom exception handling for gracefully managing errors and providing meaningful responses to clients.                     |
+| **Swagger OpenAPI**      | Integration with Swagger for API documentation, enhancing API discoverability and ease of use.                              |
+| **CORS Configuration**   | Configuration to allow requests from specified origins, facilitating cross-origin communication.                            |
+| **Database Interaction** | Interaction with MySQL database using Hibernate as the JPA implementation, ensuring efficient data storage and retrieval.   |
 
 ## <a name="endpoints"></a> 📎 Endpoints:
 
@@ -130,6 +133,8 @@ spring-boot-rest-api-demo/
 ```
 
 ## <a name="used-technologies"></a> 📎 Used technologies:
+
+#### This project is built using the following technologies:
 
 - Spring Boot
 - Spring Data JPA
