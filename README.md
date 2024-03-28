@@ -1,6 +1,6 @@
-<h2 align="center">   
+<h1 align="center">   
 REST API DEMO
-</h2>
+</h1>
 
 ## 🔎 Table of Contents:
 
@@ -68,7 +68,7 @@ REST API DEMO
 
 ## <a name="http-status-codes"></a> 📎 Http Status Codes:
 
-- This section presents the most commonly encountered HTTP status codes when developing a REST API.HTTP status codes are
+- This section presents the most commonly encountered HTTP status codes when developing a REST API. HTTP status codes are
   crucial indicators of the request and response state between the client and the server.
   Here are the top ten HTTP status codes and their meanings in the context of RESTful web services.
 
@@ -136,7 +136,7 @@ spring-boot-rest-api-demo/
 
 #### This project is built using the following technologies:
 
-- Spring Boot
+- Spring Boot 3.2.3
 - Spring Data JPA
 - Spring Data REST
 - Swagger OpenAPI
@@ -152,3 +152,4 @@ spring-boot-rest-api-demo/
 
 <p align="end">
 <img width="200" src="public-doc/Brand.png">
+</p>
