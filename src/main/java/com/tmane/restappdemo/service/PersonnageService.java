@@ -13,8 +13,6 @@ public interface PersonnageService {
 
     Page<PersonnageDTO> searchPersonnage(String query, Pageable pageable);
 
-    List<PersonnageDTO> getAllPersonnages();
-
     PersonnageDTO savePersonnage(PersonnageDTO personnageDTO);
 
     PersonnageDTO updatePersonnage(PersonnageDTO personnageDTO, Long id);

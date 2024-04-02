@@ -40,14 +40,6 @@ public class PersonnageServiceImpl implements PersonnageService {
     }
 
     @Override
-    public List<PersonnageDTO> getAllPersonnages() {
-
-        List<Personnage> personnages = personnageRepository.findAll();
-        return personnages.stream().map(personnageMapper::mapToPersonnageDTO)
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public PersonnageDTO savePersonnage(PersonnageDTO personnageDTO) {
 
         Personnage personnage = personnageMapper.mapToPersonnage(personnageDTO);

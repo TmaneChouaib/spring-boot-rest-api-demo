@@ -15,22 +15,19 @@ import java.util.List;
 @AllArgsConstructor
 public class PersonnageController {
     private PersonnageService personnageService;
+    private static final String DEFAULT_PAGE_NUMBER = "0";
+    private static final String DEFAULT_PAGE_SIZE = "10";
 
     @GetMapping
-    public List<PersonnageDTO> getAllPersonnages() {
-        return personnageService.getAllPersonnages();
-    }
-
-    @GetMapping("/pages")
-    public Page<PersonnageDTO> getAllPaginatedPersonnages(@RequestParam(defaultValue = "0") int page,
-                                                                  @RequestParam(defaultValue = "10") int size) {
+    public Page<PersonnageDTO> getAllPersonnages(@RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
+                                                 @RequestParam(defaultValue = "" + DEFAULT_PAGE_SIZE) int size) {
         return personnageService.findPaginated(page, size);
     }
 
     @GetMapping("/search")
-    public Page<PersonnageDTO> searchPersonages(@RequestParam(defaultValue = "0") String keyword,
-                                                        @RequestParam(defaultValue = "0") int page,
-                                                        @RequestParam(defaultValue = "10") int size) {
+    public Page<PersonnageDTO> searchPersonnages(@RequestParam(defaultValue = "") String keyword,
+                                                @RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
+                                                @RequestParam(defaultValue = "" + DEFAULT_PAGE_SIZE) int size) {
         Pageable pageable = PageRequest.of(page, size);
         return personnageService.searchPersonnage(keyword, pageable);
     }
