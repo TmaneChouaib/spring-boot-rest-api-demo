@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/personnages")
@@ -26,8 +25,8 @@ public class PersonnageController {
 
     @GetMapping("/search")
     public Page<PersonnageDTO> searchPersonnages(@RequestParam(defaultValue = "") String keyword,
-                                                @RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
-                                                @RequestParam(defaultValue = "" + DEFAULT_PAGE_SIZE) int size) {
+                                                 @RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
+                                                 @RequestParam(defaultValue = "" + DEFAULT_PAGE_SIZE) int size) {
         Pageable pageable = PageRequest.of(page, size);
         return personnageService.searchPersonnage(keyword, pageable);
     }
@@ -53,4 +52,8 @@ public class PersonnageController {
         personnageService.deletePersonnageById(id);
     }
 
+    @GetMapping("/count")
+    public long count() {
+        return personnageService.count();
+    }
 }
