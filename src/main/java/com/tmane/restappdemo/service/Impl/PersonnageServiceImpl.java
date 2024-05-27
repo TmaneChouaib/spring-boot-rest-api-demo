@@ -50,7 +50,6 @@ public class PersonnageServiceImpl implements PersonnageService {
     public PersonnageDTO updatePersonnage(PersonnageDTO personnageDTO, Long id) {
         Personnage personnageData = personnageRepository.findById(id).get();
 
-
         personnageData.setFirstName(personnageDTO.getFirstName());
         personnageData.setLastName(personnageDTO.getLastName());
         personnageData.setBirthDate(personnageDTO.getBirthDate());
