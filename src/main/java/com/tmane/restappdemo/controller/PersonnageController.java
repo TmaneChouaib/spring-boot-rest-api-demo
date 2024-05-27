@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/personnages")
@@ -17,8 +19,13 @@ public class PersonnageController {
     private static final String DEFAULT_PAGE_NUMBER = "0";
     private static final String DEFAULT_PAGE_SIZE = "10";
 
+    @GetMapping("/all")
+    public List<PersonnageDTO> getAllPersonnages() {
+        return personnageService.findAll();
+    }
+
     @GetMapping
-    public Page<PersonnageDTO> getAllPersonnages(@RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
+    public Page<PersonnageDTO> getAllPaginated(@RequestParam(defaultValue = "" + DEFAULT_PAGE_NUMBER) int page,
                                                  @RequestParam(defaultValue = "" + DEFAULT_PAGE_SIZE) int size) {
         return personnageService.findPaginated(page, size);
     }

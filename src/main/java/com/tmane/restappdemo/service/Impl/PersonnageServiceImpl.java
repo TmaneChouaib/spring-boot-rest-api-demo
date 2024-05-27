@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 
@@ -22,6 +23,11 @@ public class PersonnageServiceImpl implements PersonnageService {
     private MessageSource messageSource;
     private PersonnageRepository personnageRepository;
     private PersonnageMapper personnageMapper;
+
+    @Override
+    public List<PersonnageDTO> findAll() {
+        return personnageMapper.mapToPersonnageDTOs(personnageRepository.findAll());
+    }
 
     @Override
     public Page<PersonnageDTO> findPaginated(int pageNum, int pageSize) {

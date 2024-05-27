@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface PersonnageService {
+    List<PersonnageDTO> findAll();
     Page<PersonnageDTO> findPaginated(int pageNum, int pageSize);
 
     Page<PersonnageDTO> searchPersonnage(String query, Pageable pageable);
