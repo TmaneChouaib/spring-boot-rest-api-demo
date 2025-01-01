@@ -148,8 +148,8 @@ spring-boot-rest-api-demo/
 
 <p align="right" style="font-size: x-large; font-weight: bold"> End </p>
 
-----------------------------------------------------------------------------------------------------------
+---
 
 <p align="end">
-<img width="200" src="public-doc/Brand.png">
+Author: Tmane Chouaib
 </p>
