@@ -30,5 +30,5 @@ public class Character {
     private String religion;
     private String contribution;
     private String quotes;
-    private String biographie;
+    private String biography;
 }

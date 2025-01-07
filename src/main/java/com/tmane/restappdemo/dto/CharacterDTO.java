@@ -22,6 +22,6 @@ public class CharacterDTO {
     private String religion;
     private String contribution;
     private String quotes;
-    private String biographie;
+    private String biography;
 }
 

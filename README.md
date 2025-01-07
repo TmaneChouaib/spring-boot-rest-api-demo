@@ -56,15 +56,15 @@ REST API DEMO
   documentation [here](<http://localhost:8080/swagger-ui/index.html>).
 - Alternatively, you can simply refer to the table below, which displays the available endpoints.
 
-**Personages API Endpoints**
+**Characters API Endpoints**
 
 | Endpoint        | HTTP Method | Description                                       |
 |-----------------|-------------|---------------------------------------------------|
-| personages      | GET         | Retrieves the complete list of personages.        |
-| personages      | POST        | Create a new personage.                           |
-| personages/{id} | GET         | Retrieves the details of a specific personage.    |
-| personages/{id} | PUT         | Updates the information of an existing personage. |
-| personages/{id} | DELETE      | Delete an existing personage                      |
+| characters      | GET         | Retrieves the complete list of characters.        |
+| characters      | POST        | Create a new character.                           |
+| characters/{id} | GET         | Retrieves the details of a specific character.    |
+| characters/{id} | PUT         | Updates the information of an existing character. |
+| characters/{id} | DELETE      | Delete an existing character                      |
 
 ## <a name="http-status-codes"></a> 📎 Http Status Codes:
 
