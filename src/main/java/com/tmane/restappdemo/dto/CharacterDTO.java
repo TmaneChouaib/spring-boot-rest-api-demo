@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonnageDTO {
+public class CharacterDTO {
     private Long id;
     private String firstName;
     private String LastName;

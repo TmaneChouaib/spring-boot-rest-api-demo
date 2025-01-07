@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Personnage {
+public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;

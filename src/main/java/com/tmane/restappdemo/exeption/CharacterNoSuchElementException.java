@@ -1,9 +1,9 @@
 package com.tmane.restappdemo.exeption;
 
-public class PersonnageNoSuchElementException extends RuntimeException {
+public class CharacterNoSuchElementException extends RuntimeException {
     private final Long id;
 
-    public PersonnageNoSuchElementException(String message, Long id) {
+    public CharacterNoSuchElementException(String message, Long id) {
         super(message);
         this.id = id;
     }
